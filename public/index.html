@@ -1,0 +1,1614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ARYAN TECHX - Digital Products</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- ===== ZAPUPI SCRIPT ===== -->
+    <script src="https://zapupi.com/single-html-web-kit.js"></script>
+    
+    <style>
+        /* ===== CSS STARTS HERE ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #6C63FF;
+            --secondary: #2A2A3A;
+            --accent: #FF6B6B;
+            --light: #F8F9FA;
+            --dark: #1A1A2E;
+            --gradient: linear-gradient(135deg, #6C63FF, #4A47D9);
+            --shadow: 0 10px 30px rgba(0,0,0,0.1);
+            --transition: all 0.3s ease;
+            --success: #2ecc71;
+            --danger: #e74c3c;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: var(--shadow);
+            z-index: 1000;
+            padding: 15px 0;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .logo i {
+            font-size: 28px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .cart-icon {
+            position: relative;
+            font-size: 24px;
+            cursor: pointer;
+            color: var(--dark);
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background: var(--accent);
+            color: white;
+            border-radius: 50%;
+            padding: 2px 8px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .hamburger {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 120px 0 80px;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .hero-text h1 {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+
+        .hero-text h2 {
+            font-size: 36px;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .hero-text h2 span {
+            color: var(--primary);
+        }
+
+        .hero-text p {
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 12px 30px;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+        }
+
+        .btn-primary {
+            background: var(--gradient);
+            color: white;
+            box-shadow: 0 5px 15px rgba(108, 99, 255, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(108, 99, 255, 0.4);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-success {
+            background: var(--success);
+            color: white;
+        }
+
+        .btn-success:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(46, 204, 113, 0.4);
+        }
+
+        .stats {
+            display: flex;
+            gap: 50px;
+        }
+
+        .stat h3 {
+            font-size: 32px;
+            color: var(--primary);
+        }
+
+        .stat p {
+            color: #666;
+            font-size: 14px;
+        }
+
+        .hero-image {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 200px;
+            color: var(--primary);
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        /* Wallet Section */
+        .wallet-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .wallet-container {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: var(--shadow);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .wallet-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .wallet-header h2 {
+            color: var(--dark);
+            font-size: 28px;
+        }
+
+        .wallet-header h2 i {
+            color: var(--primary);
+        }
+
+        .wallet-balance {
+            text-align: center;
+            padding: 30px;
+            background: var(--gradient);
+            border-radius: 15px;
+            color: white;
+            margin-bottom: 30px;
+        }
+
+        .wallet-balance h3 {
+            font-size: 18px;
+            opacity: 0.9;
+            margin-bottom: 10px;
+        }
+
+        .wallet-balance .amount {
+            font-size: 48px;
+            font-weight: 700;
+        }
+
+        .wallet-balance .currency {
+            font-size: 24px;
+        }
+
+        .wallet-input-group {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .wallet-input-group label {
+            font-weight: 600;
+            color: var(--dark);
+            min-width: 80px;
+        }
+
+        .wallet-input-group input {
+            flex: 1;
+            padding: 12px 20px;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            font-size: 18px;
+            transition: var(--transition);
+            min-width: 150px;
+        }
+
+        .wallet-input-group input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(108, 99, 255, 0.1);
+        }
+
+        .quick-amounts {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .quick-amount-btn {
+            padding: 8px 20px;
+            border: 2px solid var(--primary);
+            background: white;
+            color: var(--primary);
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .quick-amount-btn:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        .quick-amount-btn.active {
+            background: var(--primary);
+            color: white;
+        }
+
+        .wallet-actions {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .wallet-actions .btn {
+            flex: 1;
+        }
+
+        /* Products Section */
+        .products {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        .section-title span {
+            color: var(--primary);
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 50px;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+
+        .product-image {
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #f5f7fa, #e8ecf1);
+            font-size: 60px;
+            color: var(--primary);
+        }
+
+        .product-info {
+            padding: 20px;
+        }
+
+        .product-info h3 {
+            margin-bottom: 10px;
+        }
+
+        .product-info p {
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        .product-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .price {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .rating {
+            color: #f39c12;
+        }
+
+        .add-to-cart {
+            width: 100%;
+            padding: 10px;
+            background: var(--gradient);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .add-to-cart:hover {
+            transform: scale(1.02);
+        }
+
+        /* Features */
+        .features {
+            padding: 80px 0;
+            background: var(--light);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .feature-card {
+            text-align: center;
+            padding: 30px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-card i {
+            font-size: 40px;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .feature-card h3 {
+            margin-bottom: 10px;
+        }
+
+        .feature-card p {
+            color: #666;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .testimonial-card {
+            padding: 30px;
+            background: var(--light);
+            border-radius: 15px;
+            transition: var(--transition);
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+        }
+
+        .testimonial-content {
+            margin-bottom: 20px;
+        }
+
+        .testimonial-content i {
+            color: var(--primary);
+            font-size: 24px;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .testimonial-content p {
+            color: #555;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .testimonial-author img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+        }
+
+        .testimonial-author h4 {
+            font-weight: 600;
+        }
+
+        .testimonial-author p {
+            color: #666;
+            font-size: 14px;
+        }
+
+        /* Contact */
+        .contact {
+            padding: 80px 0;
+            background: var(--light);
+        }
+
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            margin-top: 50px;
+        }
+
+        .contact-info h3 {
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        .contact-info p {
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        .contact-details {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .contact-item i {
+            color: var(--primary);
+            font-size: 20px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            text-decoration: none;
+            transition: var(--transition);
+            box-shadow: var(--shadow);
+        }
+
+        .social-links a:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            font-family: inherit;
+            transition: var(--transition);
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(108, 99, 255, 0.1);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 60px 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h3,
+        .footer-section h4 {
+            margin-bottom: 15px;
+        }
+
+        .footer-section h3 i {
+            color: var(--primary);
+        }
+
+        .footer-section p {
+            color: #aaa;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-section ul a {
+            color: #aaa;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-section ul a:hover {
+            color: var(--primary);
+        }
+
+        .newsletter {
+            display: flex;
+            gap: 10px;
+        }
+
+        .newsletter input {
+            flex: 1;
+            padding: 10px;
+            border: none;
+            border-radius: 50px;
+            background: rgba(255,255,255,0.1);
+            color: white;
+        }
+
+        .newsletter button {
+            padding: 10px 20px;
+            background: var(--primary);
+            border: none;
+            border-radius: 50px;
+            color: white;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .newsletter button:hover {
+            background: #5a52d5;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #aaa;
+        }
+
+        /* Cart Sidebar */
+        .cart-sidebar {
+            position: fixed;
+            top: 0;
+            right: -400px;
+            width: 400px;
+            height: 100vh;
+            background: white;
+            box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+            z-index: 2000;
+            padding: 20px;
+            transition: right 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .cart-sidebar.active {
+            right: 0;
+        }
+
+        .cart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .close-cart {
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: #666;
+        }
+
+        .cart-items {
+            flex: 1;
+            overflow-y: auto;
+            padding: 20px 0;
+        }
+
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .cart-footer {
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+
+        .cart-total {
+            display: flex;
+            justify-content: space-between;
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .checkout-btn {
+            width: 100%;
+            padding: 15px;
+        }
+
+        .cart-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 1999;
+            display: none;
+        }
+
+        .cart-overlay.active {
+            display: block;
+        }
+
+        /* Notification */
+        .notification {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: var(--dark);
+            color: white;
+            padding: 15px 25px;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            z-index: 3000;
+            animation: slideIn 0.3s ease;
+            font-weight: 500;
+            max-width: 400px;
+        }
+
+        .notification.success {
+            background: var(--success);
+        }
+
+        .notification.error {
+            background: var(--danger);
+        }
+
+        @keyframes slideIn {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        @keyframes slideOut {
+            from { transform: translateX(0); opacity: 1; }
+            to { transform: translateX(100%); opacity: 0; }
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .stats {
+                justify-content: center;
+            }
+
+            .contact-wrapper {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-text h1 {
+                font-size: 36px;
+            }
+
+            .hero-image {
+                font-size: 150px;
+            }
+
+            .wallet-container {
+                padding: 20px;
+            }
+
+            .wallet-input-group {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .wallet-actions {
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .nav-links.active {
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                right: 0;
+                background: white;
+                padding: 20px;
+                box-shadow: var(--shadow);
+            }
+
+            .cart-sidebar {
+                width: 100%;
+                right: -100%;
+            }
+
+            .product-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-text h1 {
+                font-size: 28px;
+            }
+
+            .stats {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .quick-amounts {
+                justify-content: center;
+            }
+        }
+        /* ===== CSS ENDS HERE ===== */
+    </style>
+</head>
+<body>
+    <!-- ===== HTML STARTS HERE ===== -->
+    <nav>
+        <div class="container nav-container">
+            <div class="logo">
+                <i class="fas fa-crown"></i>
+                <span>ARYAN TECHX</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#wallet">Wallet</a></li>
+                <li><a href="#products">Products</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#testimonials">Testimonials</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="cart-icon">
+                <i class="fas fa-shopping-cart"></i>
+                <span class="cart-count">0</span>
+            </div>
+            <div class="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <section id="home" class="hero">
+        <div class="container hero-content">
+            <div class="hero-text">
+                <h1>Premium Digital Products</h1>
+                <h2>by <span>ARYAN TECHX</span></h2>
+                <p>High-quality digital products crafted with precision and innovation. Elevate your digital experience today.</p>
+                <div class="hero-buttons">
+                    <a href="#products" class="btn btn-primary">Explore Products</a>
+                    <a href="#wallet" class="btn btn-success"><i class="fas fa-wallet"></i> Add Funds</a>
+                    <a href="#contact" class="btn btn-secondary">Contact Us</a>
+                </div>
+                <div class="stats">
+                    <div class="stat">
+                        <h3>50+</h3>
+                        <p>Products</p>
+                    </div>
+                    <div class="stat">
+                        <h3>10K+</h3>
+                        <p>Happy Customers</p>
+                    </div>
+                    <div class="stat">
+                        <h3>4.9</h3>
+                        <p>Rating</p>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-image">
+                <i class="fas fa-rocket"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== WALLET SECTION ===== -->
+    <section id="wallet" class="wallet-section">
+        <div class="container">
+            <div class="wallet-container">
+                <div class="wallet-header">
+                    <h2><i class="fas fa-wallet"></i> My Wallet</h2>
+                    <p style="color: #666;">Add funds to your wallet and start shopping!</p>
+                </div>
+                
+                <div class="wallet-balance">
+                    <h3>Available Balance</h3>
+                    <div class="amount">
+                        <span class="currency">₹</span>
+                        <span id="walletBalance">0</span>
+                    </div>
+                </div>
+
+                <div style="margin-bottom: 20px;">
+                    <label style="font-weight: 600; display: block; margin-bottom: 10px; color: var(--dark);">Enter Amount to Deposit</label>
+                    <div class="wallet-input-group">
+                        <input type="number" id="depositAmount" placeholder="Enter amount..." min="1" value="100">
+                    </div>
+                </div>
+
+                <div style="margin-bottom: 20px;">
+                    <label style="font-weight: 600; display: block; margin-bottom: 10px; color: var(--dark);">Quick Select</label>
+                    <div class="quick-amounts">
+                        <button class="quick-amount-btn active" data-amount="100">₹100</button>
+                        <button class="quick-amount-btn" data-amount="200">₹200</button>
+                        <button class="quick-amount-btn" data-amount="500">₹500</button>
+                        <button class="quick-amount-btn" data-amount="1000">₹1000</button>
+                        <button class="quick-amount-btn" data-amount="2000">₹2000</button>
+                    </div>
+                </div>
+
+                <div class="wallet-actions">
+                    <button class="btn btn-primary" id="depositBtn" style="flex: 1;">
+                        <i class="fas fa-plus-circle"></i> Deposit Now
+                    </button>
+                </div>
+
+                <p style="text-align: center; color: #999; font-size: 14px; margin-top: 15px;">
+                    <i class="fas fa-lock"></i> Secure payment via ZapUPI
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="products" class="products">
+        <div class="container">
+            <h2 class="section-title">Our <span>Products</span></h2>
+            <p class="section-subtitle">Premium digital products to enhance your workflow</p>
+            
+            <div class="product-grid">
+                <div class="product-card">
+                    <div class="product-image">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <div class="product-info">
+                        <h3>Pro Web Kit</h3>
+                        <p>Complete web development toolkit with 50+ components</p>
+                        <div class="product-meta">
+                            <span class="price">₹999</span>
+                            <span class="rating"><i class="fas fa-star"></i> 4.9</span>
+                        </div>
+                        <button class="btn add-to-cart">Add to Cart</button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <div class="product-info">
+                        <h3>UI Design Bundle</h3>
+                        <p>200+ UI elements & templates for designers</p>
+                        <div class="product-meta">
+                            <span class="price">₹799</span>
+                            <span class="rating"><i class="fas fa-star"></i> 4.8</span>
+                        </div>
+                        <button class="btn add-to-cart">Add to Cart</button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <div class="product-info">
+                        <h3>App Development Kit</h3>
+                        <p>Mobile app templates & source codes</p>
+                        <div class="product-meta">
+                            <span class="price">₹1499</span>
+                            <span class="rating"><i class="fas fa-star"></i> 4.7</span>
+                        </div>
+                        <button class="btn add-to-cart">Add to Cart</button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="product-info">
+                        <h3>Analytics Dashboard</h3>
+                        <p>Interactive analytics dashboard with real-time data</p>
+                        <div class="product-meta">
+                            <span class="price">₹1999</span>
+                            <span class="rating"><i class="fas fa-star"></i> 4.9</span>
+                        </div>
+                        <button class="btn add-to-cart">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="features" class="features">
+        <div class="container">
+            <h2 class="section-title">Why <span>Choose Us</span></h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <i class="fas fa-bolt"></i>
+                    <h3>Instant Delivery</h3>
+                    <p>Get your products immediately after purchase</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Secure Purchase</h3>
+                    <p>100% secure payment with buyer protection</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-headset"></i>
+                    <h3>24/7 Support</h3>
+                    <p>Dedicated support team always ready to help</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-sync"></i>
+                    <h3>Regular Updates</h3>
+                    <p>Free updates for all purchased products</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="testimonials" class="testimonials">
+        <div class="container">
+            <h2 class="section-title">What Our <span>Customers Say</span></h2>
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <i class="fas fa-quote-left"></i>
+                        <p>ARYAN TECHX provides the best digital products I've ever purchased. Highly recommended!</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="https://ui-avatars.com/api/?name=Rahul+K" alt="Customer">
+                        <div>
+                            <h4>Rahul Kumar</h4>
+                            <p>Web Developer</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <i class="fas fa-quote-left"></i>
+                        <p>Excellent quality and amazing customer support. Will definitely buy again!</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="https://ui-avatars.com/api/?name=Priya+S" alt="Customer">
+                        <div>
+                            <h4>Priya Singh</h4>
+                            <p>UI Designer</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <i class="fas fa-quote-left"></i>
+                        <p>The products are top-notch and worth every penny. Great value for money!</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="https://ui-avatars.com/api/?name=Amit+P" alt="Customer">
+                        <div>
+                            <h4>Amit Patel</h4>
+                            <p>Entrepreneur</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Get In <span>Touch</span></h2>
+            <div class="contact-wrapper">
+                <div class="contact-info">
+                    <h3>Let's Connect</h3>
+                    <p>Have questions? We're here to help!</p>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>support@aryantechx.com</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <span>+91 1234567890</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>India</span>
+                        </div>
+                    </div>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <form class="contact-form" id="contactForm">
+                    <input type="text" placeholder="Your Name" required>
+                    <input type="email" placeholder="Your Email" required>
+                    <textarea rows="5" placeholder="Your Message" required></textarea>
+                    <button type="submit" class="btn btn-primary">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-section">
+                <h3><i class="fas fa-crown"></i> ARYAN TECHX</h3>
+                <p>Premium digital products for modern creators.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#wallet">Wallet</a></li>
+                    <li><a href="#products">Products</a></li>
+                    <li><a href="#features">Features</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Support</h4>
+                <ul>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms & Conditions</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Newsletter</h4>
+                <p>Subscribe for updates</p>
+                <div class="newsletter">
+                    <input type="email" placeholder="Your Email">
+                    <button><i class="fas fa-paper-plane"></i></button>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 ARYAN TECHX. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <div class="cart-sidebar">
+        <div class="cart-header">
+            <h3>Your Cart</h3>
+            <button class="close-cart"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="cart-items"></div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Total:</span>
+                <span class="total-price">₹0</span>
+            </div>
+            <button class="btn btn-primary checkout-btn">Checkout</button>
+        </div>
+    </div>
+
+    <div class="cart-overlay"></div>
+    <!-- ===== HTML ENDS HERE ===== -->
+
+    <!-- ===== JAVASCRIPT STARTS HERE ===== -->
+    <script>
+        // ===== WALLET SYSTEM =====
+        let walletBalance = 0;
+
+        // Load wallet balance from localStorage
+        if (localStorage.getItem('walletBalance')) {
+            walletBalance = parseInt(localStorage.getItem('walletBalance'));
+            document.getElementById('walletBalance').textContent = walletBalance;
+        }
+
+        // Quick amount buttons
+        document.querySelectorAll('.quick-amount-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('.quick-amount-btn').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                document.getElementById('depositAmount').value = this.dataset.amount;
+            });
+        });
+
+        // ===== UPDATED DEPOSIT FUNCTION (Using Backend API) =====
+        async function depositMoney(amount) {
+            if (!amount || amount <= 0) {
+                showNotification('⚠️ Please enter a valid amount!', 'error');
+                return;
+            }
+
+            const orderId = "DEP" + Date.now();
+
+            try {
+                showNotification('⏳ Creating payment order...', '');
+                
+                // Call our backend API instead of directly using ZapUPI
+                const response = await fetch('/api/create-order', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        amount: amount,
+                        order_id: orderId,
+                        remark: "Wallet Deposit | ARYAN TECHX"
+                    })
+                });
+
+                const data = await response.json();
+
+                if (data.success && data.payment_url) {
+                    // Load payment using ZapUPI
+                    ZapUPI.loadPayment(data.payment_url);
+                } else {
+                    showNotification('❌ Error: ' + (data.error || 'Unable to create payment'), 'error');
+                    console.error('Payment creation failed:', data);
+                }
+            } catch (error) {
+                showNotification('❌ Network error: ' + error.message, 'error');
+                console.error('Fetch error:', error);
+            }
+        }
+
+        // ===== ZAPUPI PAYMENT CALLBACKS =====
+        ZapUPI.setPaymentCallbacks({
+            onSuccess: function(orderId) {
+                // Check if it's a deposit or product purchase
+                if (orderId.startsWith('DEP')) {
+                    // Wallet Deposit - Add balance
+                    const amount = parseInt(document.getElementById('depositAmount').value) || 0;
+                    walletBalance += amount;
+                    localStorage.setItem('walletBalance', walletBalance);
+                    document.getElementById('walletBalance').textContent = walletBalance;
+                    showNotification('✅ ₹' + amount + ' added to wallet! 🎉', 'success');
+                    document.getElementById('depositAmount').value = '';
+                } else {
+                    // Product Purchase - Clear cart
+                    cart = [];
+                    updateCart();
+                    closeCartFunction();
+                    showNotification('✅ Payment Successful! Order: ' + orderId + ' 🎉', 'success');
+                }
+                console.log('Payment Success - Order ID:', orderId);
+            },
+            onFailed: function(orderId) {
+                showNotification('❌ Payment Failed. Order: ' + orderId + ' - Please try again', 'error');
+                console.log('Payment Failed - Order ID:', orderId);
+            },
+            onTimeout: function(orderId) {
+                showNotification('⏰ Payment Timed Out. Order: ' + orderId + ' - Please try again', 'error');
+                console.log('Payment Timeout - Order ID:', orderId);
+            },
+        });
+
+        // ===== DEPOSIT BUTTON (UPDATED) =====
+        document.getElementById('depositBtn').addEventListener('click', function() {
+            const amount = parseInt(document.getElementById('depositAmount').value);
+            if (!amount || amount <= 0) {
+                showNotification('⚠️ Please enter a valid amount!', 'error');
+                return;
+            }
+            depositMoney(amount);
+        });
+
+        // ===== CART SYSTEM =====
+        // Mobile Navigation
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Cart System
+        const cartIcon = document.querySelector('.cart-icon');
+        const cartSidebar = document.querySelector('.cart-sidebar');
+        const cartOverlay = document.querySelector('.cart-overlay');
+        const closeCart = document.querySelector('.close-cart');
+        const cartItems = document.querySelector('.cart-items');
+        const cartCount = document.querySelector('.cart-count');
+        const totalPrice = document.querySelector('.total-price');
+        const addToCartButtons = document.querySelectorAll('.add-to-cart');
+
+        let cart = [];
+
+        // Open Cart
+        cartIcon.addEventListener('click', () => {
+            cartSidebar.classList.add('active');
+            cartOverlay.classList.add('active');
+        });
+
+        // Close Cart
+        closeCart.addEventListener('click', closeCartFunction);
+        cartOverlay.addEventListener('click', closeCartFunction);
+
+        function closeCartFunction() {
+            cartSidebar.classList.remove('active');
+            cartOverlay.classList.remove('active');
+        }
+
+        // Add to Cart
+        addToCartButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const productCard = this.closest('.product-card');
+                const productName = productCard.querySelector('h3').textContent;
+                const productPrice = productCard.querySelector('.price').textContent;
+                const productImage = productCard.querySelector('.product-image i').className;
+
+                const product = {
+                    name: productName,
+                    price: productPrice,
+                    image: productImage,
+                    quantity: 1
+                };
+
+                const existingProduct = cart.find(item => item.name === productName);
+                if (existingProduct) {
+                    existingProduct.quantity += 1;
+                } else {
+                    cart.push(product);
+                }
+
+                updateCart();
+                showNotification(`${productName} added to cart! 🛒`, 'success');
+            });
+        });
+
+        // Update Cart
+        function updateCart() {
+            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+            cartCount.textContent = totalItems;
+
+            if (cart.length === 0) {
+                cartItems.innerHTML = '<p style="text-align: center; color: #999; padding: 40px 0;">Your cart is empty 🛒</p>';
+                totalPrice.textContent = '₹0';
+                return;
+            }
+
+            let html = '';
+            let total = 0;
+
+            cart.forEach((item, index) => {
+                const priceNumber = parseInt(item.price.replace(/[^0-9]/g, ''));
+                total += priceNumber * item.quantity;
+
+                html += `
+                    <div class="cart-item">
+                        <div>
+                            <i class="${item.image}" style="margin-right: 10px; color: #6C63FF;"></i>
+                            <strong>${item.name}</strong>
+                            <div style="font-size: 14px; color: #999;">Qty: ${item.quantity}</div>
+                        </div>
+                        <div>
+                            <span style="margin-right: 10px;">₹${priceNumber * item.quantity}</span>
+                            <button onclick="removeFromCart(${index})" style="background: none; border: none; color: #FF6B6B; cursor: pointer; font-size: 16px;">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </div>
+                    </div>
+                `;
+            });
+
+            cartItems.innerHTML = html;
+            totalPrice.textContent = `₹${total}`;
+        }
+
+        // Remove from Cart
+        function removeFromCart(index) {
+            cart.splice(index, 1);
+            updateCart();
+            if (cart.length === 0) {
+                closeCartFunction();
+            }
+        }
+
+        // ===== UPDATED CHECKOUT (Product Purchase using Backend API) =====
+        document.querySelector('.checkout-btn').addEventListener('click', async function() {
+            if (cart.length === 0) {
+                showNotification('⚠️ Your cart is empty! Add some products first.', 'error');
+                return;
+            }
+
+            let totalAmount = 0;
+            cart.forEach(item => {
+                const priceNumber = parseInt(item.price.replace(/[^0-9]/g, ''));
+                totalAmount += priceNumber * item.quantity;
+            });
+
+            const orderId = "ORD" + Date.now();
+            const productNames = cart.map(item => item.name).join(", ");
+
+            try {
+                showNotification('⏳ Creating payment order...', '');
+                
+                // Call our backend API
+                const response = await fetch('/api/create-order', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        amount: totalAmount,
+                        order_id: orderId,
+                        remark: "ARYAN TECHX | " + productNames
+                    })
+                });
+
+                const data = await response.json();
+
+                if (data.success && data.payment_url) {
+                    // Load payment using ZapUPI
+                    ZapUPI.loadPayment(data.payment_url);
+                } else {
+                    showNotification('❌ Error: ' + (data.error || 'Unable to create payment'), 'error');
+                    console.error('Payment creation failed:', data);
+                }
+            } catch (error) {
+                showNotification('❌ Network error: ' + error.message, 'error');
+                console.error('Fetch error:', error);
+            }
+        });
+
+        // ===== NOTIFICATION SYSTEM =====
+        function showNotification(message, type = '') {
+            const notification = document.createElement('div');
+            notification.className = 'notification ' + type;
+            notification.textContent = message;
+            document.body.appendChild(notification);
+
+            setTimeout(() => {
+                notification.style.animation = 'slideOut 0.3s ease';
+                setTimeout(() => {
+                    notification.remove();
+                }, 300);
+            }, 4000);
+        }
+
+        // ===== CONTACT FORM =====
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            showNotification('✅ Thank you! We will get back to you soon.', 'success');
+            this.reset();
+        });
+
+        // ===== NEWSLETTER =====
+        document.querySelector('.newsletter button').addEventListener('click', function() {
+            const input = this.previousElementSibling;
+            if (input.value.trim()) {
+                showNotification('✅ Subscribed successfully!', 'success');
+                input.value = '';
+            } else {
+                showNotification('⚠️ Please enter your email address', 'error');
+            }
+        });
+
+        // ===== SMOOTH SCROLL =====
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                    navLinks.classList.remove('active');
+                }
+            });
+        });
+
+        // ===== SCROLL ANIMATIONS =====
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.product-card, .feature-card, .testimonial-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.6s ease';
+            observer.observe(el);
+        });
+
+        console.log('🚀 ARYAN TECHX Website Loaded Successfully!');
+        console.log('💻 Made with ❤️ by ARYAN TECHX');
+        console.log('💰 Wallet Balance: ₹' + walletBalance);
+        console.log('💳 ZapUPI Payment Gateway Integrated via Backend');
+        console.log('🔒 Secret Key is safe on the server!');
+    </script>
+    <!-- ===== JAVASCRIPT ENDS HERE ===== -->
+</body>
+</html>
